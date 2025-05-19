@@ -1,3 +1,4 @@
 *.swp
 *.tmp
 konsave/profiles/*.zip
+konsave/profiles/*.knsv

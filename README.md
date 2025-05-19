@@ -17,4 +17,3 @@ Make sure you have the following installed:
 - `curl`
 - `npm`
 - `vim`
-- `zsh`

@@ -18,7 +18,10 @@ bindkey '^I^I' autosuggest-accept  # Accept autosuggestion with double tab
 autoload -U select-word-style
 select-word-style bash
 
-# Bun settings
+# Variables for other software
+# Bun
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# Go
+export PATH=$PATH:/usr/local/go/bin

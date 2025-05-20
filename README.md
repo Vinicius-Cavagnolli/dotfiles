@@ -40,3 +40,15 @@ Restore a saved profile by passing the backup filename (without extension) as an
 chmod + x ./konsave/restore-profile.sh
 ./konsave/restore-profile.sh minimal-setup-2025-05-19_17-37
 ```
+
+## Wallpaper setup
+Dependencies:
+- `smartER-video-wallpaper` [GitHub](https://github.com/PeterTucker/smartER-video-wallpaper/) [KDE Store](https://store.kde.org/p/1448924)
+
+> ⚠️ This was backed up externally from git, so it was removed for automatically defining it. Follow the manual install.
+
+## SDDM setup
+```bash
+chmod + x ./sddm/install.sh
+./sddm/install.sh
+```

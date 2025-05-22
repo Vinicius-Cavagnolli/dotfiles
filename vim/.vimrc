@@ -54,6 +54,7 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -105,3 +106,8 @@ nnoremap <leader>l :Lines<CR>
 
 " Use ripgrep (rg) with fzf
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
+
+" ========================================
+" markdown-preview
+" ========================================
+nnoremap <leader>mp :MarkdownPreview<CR>

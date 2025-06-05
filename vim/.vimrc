@@ -1,25 +1,25 @@
 " ========================================
 " Basic Settings
 " ========================================
-set nocompatible              " Disable legacy Vi compatibility
-syntax on                     " Enable syntax highlighting
-filetype plugin indent on     " Enable filetype detection and indentation
+set nocompatible                " Disable legacy Vi compatibility
+syntax on                       " Enable syntax highlighting
+filetype plugin indent on       " Enable filetype detection and indentation
 
 " UI
-set number                    " Show line numbers
-set cursorline                " Highlight current line
-set nowrap                    " Don't wrap long lines
+set number                      " Show line numbers
+set cursorline                  " Highlight current line
+set nowrap                      " Don't wrap long lines
 
 " Tabs and Indentation
-set expandtab                 " Use spaces instead of tabs
-set autoindent                " Copy indent from current line
-set smartindent               " Smart autoindenting for code
-set tabstop=4                 " Number of spaces per tab
-set shiftwidth=4              " Indent by 4 spaces
+set expandtab                   " Use spaces instead of tabs
+set autoindent                  " Copy indent from current line
+set smartindent                 " Smart autoindenting for code
+set tabstop=4                   " Number of spaces per tab
+set shiftwidth=4                " Indent by 4 spaces
 
 " Behavior
-set clipboard=unnamed         " Use system clipboard
-set backspace=indent,eol,start
+set clipboard=unnamed           " Use system clipboard
+set backspace=indent,eol,start  " Make backspace behavior less restricted
 
 " ========================================
 " Keybindings

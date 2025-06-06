@@ -52,3 +52,6 @@ Dependencies:
 chmod + x ./sddm/install.sh
 ./sddm/install.sh
 ```
+
+## Recommended helpers
+- tree

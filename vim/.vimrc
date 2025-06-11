@@ -8,7 +8,7 @@ filetype plugin indent on       " Enable filetype detection and indentation
 " UI
 set number                      " Show line numbers
 set cursorline                  " Highlight current line
-set nowrap                      " Don't wrap long lines
+set wrap                        " Wrap long lines
 
 " Tabs and Indentation
 set expandtab                   " Use spaces instead of tabs
@@ -18,7 +18,7 @@ set tabstop=4                   " Number of spaces per tab
 set shiftwidth=4                " Indent by 4 spaces
 
 " Behavior
-set clipboard=unnamed           " Use system clipboard
+set clipboard=unnamedplus       " Use system clipboard
 set backspace=indent,eol,start  " Make backspace behavior less restricted
 
 " ========================================

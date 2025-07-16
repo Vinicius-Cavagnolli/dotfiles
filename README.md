@@ -55,3 +55,4 @@ chmod + x ./sddm/install.sh
 
 ## Recommended helpers
 - tree
+- httpie

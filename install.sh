@@ -46,14 +46,14 @@ VIM_WAYLAND_CLIP_REPO="https://github.com/jasonccox/vim-wayland-clipboard.git"
 # +--------------------------------------+
 # |               Helpers                |
 # +--------------------------------------+
+success() { echo -e "${GREEN}[OK]${RESET} $1"; }
+warn() { echo -e "${YELLOW}[WARN]${RESET} $1"; }
+error() { echo -e "${RED}[ERROR]${RESET} $1"; }
 info() { echo -e "${BLUE}[INFO]${RESET} $1"; }
 infonl() {
   echo ""
   info "$1"
 }
-success() { echo -e "${GREEN}[OK]${RESET} $1"; }
-warn() { echo -e "${YELLOW}[WARN]${RESET} $1"; }
-error() { echo -e "${RED}[ERROR]${RESET} $1"; }
 
 
 # +--------------------------------------+
@@ -157,7 +157,6 @@ if [ ! -d "$VIM_WAYLAND_PACK_DIR/vim-wayland-clipboard" ]; then
 else
   success "vim-wayland-clipboard already set up."
 fi
-
 
 infonl "Linking .vimrc..."
 

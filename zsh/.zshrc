@@ -23,9 +23,9 @@ select-word-style bash
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions
+[ -s "~/.local/share/reflex/bun/_bun" ] && source "~/.local/share/reflex/bun/_bun"
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
 
-# bun completions
-[ -s "/home/vinicius/.local/share/reflex/bun/_bun" ] && source "/home/vinicius/.local/share/reflex/bun/_bun"

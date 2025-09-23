@@ -29,8 +29,12 @@ ZSHRC_SOURCE="$DOTFILES_DIR/zsh/.zshrc"
 ZSHRC_TARGET="$HOME/.zshrc"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 ZSH_PLUGINS_DIR="$ZSH_CUSTOM/plugins"
+AIDER_SOURCE="$DOTFILES_DIR/aider/.aider.conf.yml"
+AIDER_TARGET="$HOME/.aider.conf.yml"
+AIDER_SOURCE_METADATA="$DOTFILES_DIR/aider/.aider.model.metadata.json"
+AIDER_TARGET_METADATA="$HOME/.aider.model.metadata.json"
 
-# Git sources
+# Git sources / install urls
 FZF_GIT_REPO="https://github.com/junegunn/fzf.git"
 VIM_PLUG_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 ALACRITTY_THEME_REPO="https://github.com/alacritty/alacritty-theme.git"
@@ -41,6 +45,7 @@ ZSH_AUTOSUGGESTIONS_REPO="https://github.com/zsh-users/zsh-autosuggestions.git"
 ZSH_SHIFT_SELECT_REPO="https://github.com/jeffreytse/zsh-shift-select.git"
 VIM_REPO="https://github.com/vim/vim.git"
 VIM_WAYLAND_CLIP_REPO="https://github.com/jasonccox/vim-wayland-clipboard.git"
+OLLAMA_INSTALL_SCRIPT="https://ollama.com/install.sh"
 
 
 # +--------------------------------------+
@@ -61,6 +66,7 @@ infonl() {
 # +--------------------------------------+
 info "Starting environment setup."
 warn "You will be prompted for the sudo password as needed."
+
 
 # +--------------------------------------+
 # |          Dependency Check            |
@@ -330,6 +336,62 @@ if [ ! -d "$THEMES_DIR" ]; then
 else
   success "Alacritty themes already installed."
 fi
+
+
+# +--------------------------------------+
+# |              Ollama                  |
+# +--------------------------------------+
+infonl "Setting up Ollama..."
+
+if ! command -v ollama &>/dev/null; then
+  info "Installing Ollama..."
+  curl -fsSL "$OLLAMA_INSTALL_SCRIPT" | sh
+  success "Ollama installed."
+else
+  success "Ollama is already installed."
+fi
+
+infonl "Pulling qwen2.5-coder:3b model..."
+if ollama list | grep -q "qwen2.5-coder:3b"; then
+  success "Model qwen2.5-coder:3b already pulled."
+else
+  if ollama pull qwen2.5-coder:3b; then
+    success "qwen2.5-coder:3b pulled successfully."
+  else
+    error "Failed to pull qwen2.5-coder:3b."
+    exit 1
+  fi
+fi
+
+
+# +--------------------------------------+
+# |              Aider                   |
+# +--------------------------------------+
+infonl "Setting up Aider..."
+
+if ! command -v aider >/dev/null 2>&1; then
+  echo "[INFO] Installing Aider..."
+  curl -LsSf "$AIDER_INSTALL_SCRIPT" | sh
+fi
+
+if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+  source $HOME/.local/bin/env
+fi
+
+infonl "Linking Aider configs..."
+
+mkdir -p "$(dirname "$AIDER_TARGET")"
+
+if [ -e "$AIDER_TARGET" ] && [ ! -L "$AIDER_TARGET" ]; then
+  warn "$AIDER_TARGET already exists. Backing it up to $AIDER_TARGET.backup"
+  mv "$AIDER_TARGET" "$AIDER_TARGET.backup"
+fi
+
+ln -sfn "$AIDER_SOURCE" "$AIDER_TARGET"
+success "Symlinked $AIDER_SOURCE → $AIDER_TARGET"
+ln -sfn "$AIDER_SOURCE_METADATA" "$AIDER_TARGET_METADATA"
+success "Symlinked $AIDER_SOURCE_METADATA → $AIDER_TARGET_METADATA"
 
 
 # +--------------------------------------+

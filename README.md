@@ -8,8 +8,8 @@ Dependencies:
 ```bash
 git clone https://github.com/Vinicius-Cavagnolli/dotfiles.git ~/.dotfiles-bkp
 cd ~/.dotfiles-bkp
-chmod +x install.sh
-./install.sh
+chmod +x init.sh
+./init.sh
 ```
 
 > ⚠️ The script will prompt for `sudo` to start some utilities.

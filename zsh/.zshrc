@@ -18,14 +18,13 @@ bindkey '^I^I' autosuggest-accept  # Accept autosuggestion with double tab
 autoload -U select-word-style
 select-word-style bash
 
-# Variables for other software
-# Bun
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# bun completions
-[ -s "~/.local/share/reflex/bun/_bun" ] && source "~/.local/share/reflex/bun/_bun"
+# Ollama
+export OLLAMA_API_BASE=http://127.0.0.1:11434
 
-# Go
-export PATH=$PATH:/usr/local/go/bin
-
+# Paths
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"  # Bun
+export BUN_INSTALL="$HOME/.bun" # Bun
+export PATH="$BUN_INSTALL/bin:$PATH" # Bun
+[ -s "~/.local/share/reflex/bun/_bun" ] && source "~/.local/share/reflex/bun/_bun" # Bun
+export PATH=$PATH:/usr/local/go/bin # Go
+export PATH="$HOME/.local/bin:$PATH" # Aider

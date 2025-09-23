@@ -1,10 +1,8 @@
 {
-    "qwen2.5-coder:3b": {
+    "ollama/qwen2.5-coder:3b": {
         "max_tokens": 4096,
         "max_input_tokens": 32000,
         "max_output_tokens": 4096,
-        "input_cost_per_token": 0.00000014,
-        "output_cost_per_token": 0.00000028,
         "litellm_provider": "ollama",
         "mode": "chat"
     }

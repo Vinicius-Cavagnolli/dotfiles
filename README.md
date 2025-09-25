@@ -1,5 +1,7 @@
-## Applications setup
+# Applications setup
+
 Dependencies:
+
 - `git`
 - `curl`
 - `npm`
@@ -15,12 +17,15 @@ chmod +x init.sh
 > ⚠️ The script will prompt for `sudo` to start some utilities.
 
 ## Layout setup
+
 Dependencies:
+
 - `konsave` [GitHub](https://github.com/prayag2/konsave)
 
 > ⚠️ The scripts were tested within a KDE Plasma|Wayland|Kwin environment.
 
-#### Backup
+### Backup
+
 Run the backup script to save the current KDE configuration as a timestamped backup ZIP in the `konsave/profiles/` folder:
 
 ```bash
@@ -34,6 +39,7 @@ Example output file:
 > ⚠️ This folder contains local konsave backups. Files here are not tracked by Git.
 
 #### Restore
+
 Restore a saved profile by passing the backup filename (without extension) as an argument:
 
 ```bash
@@ -42,17 +48,21 @@ chmod + x ./konsave/restore-profile.sh
 ```
 
 ## Wallpaper setup
+
 Dependencies:
+
 - `smartER-video-wallpaper` [GitHub](https://github.com/PeterTucker/smartER-video-wallpaper/) [KDE Store](https://store.kde.org/p/1448924)
 
 > ⚠️ This was backed up externally from git, so it was removed for automatically defining it. Follow the manual install.
 
 ## SDDM setup
+
 ```bash
 chmod + x ./sddm/install.sh
 ./sddm/install.sh
 ```
 
 ## Recommended helpers
+
 - tree
 - httpie

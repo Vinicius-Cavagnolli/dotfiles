@@ -28,3 +28,6 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Bun
 [ -s "~/.local/share/reflex/bun/_bun" ] && source "~/.local/share/reflex/bun/_bun" # Bun
 export PATH=$PATH:/usr/local/go/bin # Go
 export PATH="$HOME/.local/bin:$PATH" # Aider
+export NVM_DIR="$HOME/.nvm" # NVM
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # NVM
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # NVM

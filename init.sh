@@ -46,6 +46,7 @@ ZSH_SHIFT_SELECT_REPO="https://github.com/jeffreytse/zsh-shift-select.git"
 VIM_REPO="https://github.com/vim/vim.git"
 VIM_WAYLAND_CLIP_REPO="https://github.com/jasonccox/vim-wayland-clipboard.git"
 OLLAMA_INSTALL_SCRIPT="https://ollama.com/install.sh"
+NVM_INSTALL_SCRIPT="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh"
 
 
 # +--------------------------------------+
@@ -93,6 +94,22 @@ check_dep "wl-copy" "wl-clipboard"
 if [ "$MISSING_DEPS" = true ]; then
   error "Some dependencies are missing. Please install them and re-run this script."
   exit 1
+fi
+
+
+# +--------------------------------------+
+# |                 NVM                  |
+# +--------------------------------------+
+infonl "Checking for nvm..."
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+if ! command -v nvm >/dev/null 2>&1; then
+  warn "nvm not found. Installing nvm..."
+  curl -o- "$NVM_INSTALL_SCRIPT" | bash
+  success "fzf installed successfully."
+else
+  success "nvm is already installed."
 fi
 
 

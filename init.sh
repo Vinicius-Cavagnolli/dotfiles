@@ -47,6 +47,7 @@ VIM_REPO="https://github.com/vim/vim.git"
 VIM_WAYLAND_CLIP_REPO="https://github.com/jasonccox/vim-wayland-clipboard.git"
 OLLAMA_INSTALL_SCRIPT="https://ollama.com/install.sh"
 NVM_INSTALL_SCRIPT="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh"
+UV_INSTALL_SCRIPT="https://astral.sh/uv/install.sh"
 
 
 # +--------------------------------------+
@@ -238,6 +239,19 @@ if ! command -v pyright &>/dev/null; then
   fi
 else
   success "pyright is already installed."
+fi
+
+
+# +--------------------------------------+
+# |                  uv                  |
+# +--------------------------------------+
+infonl "Checking for uv..."
+
+if ! command -v uv &>/dev/null; then
+  info "Installing uv from script..."
+  curl -LsSf $UV_INSTALL_SCRIPT | sh
+else
+  success "uv is already installed."
 fi
 
 

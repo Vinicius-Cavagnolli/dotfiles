@@ -48,6 +48,7 @@ VIM_WAYLAND_CLIP_REPO="https://github.com/jasonccox/vim-wayland-clipboard.git"
 OLLAMA_INSTALL_SCRIPT="https://ollama.com/install.sh"
 NVM_INSTALL_SCRIPT="https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh"
 UV_INSTALL_SCRIPT="https://astral.sh/uv/install.sh"
+PNPM_INSTALL_SCRIPT="https://get.pnpm.io/install.sh"
 
 
 # +--------------------------------------+
@@ -108,9 +109,24 @@ export NVM_DIR="$HOME/.nvm"
 if ! command -v nvm >/dev/null 2>&1; then
   warn "nvm not found. Installing nvm..."
   curl -o- "$NVM_INSTALL_SCRIPT" | bash
-  success "fzf installed successfully."
+  success "nvm installed successfully."
 else
   success "nvm is already installed."
+fi
+
+
+# +--------------------------------------+
+# |                 pnpm                 |
+# +--------------------------------------+
+infonl "Checking for pnpm..."
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+if ! command -v pnpm >/dev/null 2>&1; then
+  warn "pnpm not found. Installing pnpm..."
+  curl -fsSL "$PNPM_INSTALL_SCRIPT" | sh -
+  success "pnpm installed successfully."
+else
+  success "pnpm is already installed."
 fi
 
 

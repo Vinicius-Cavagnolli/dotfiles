@@ -1,7 +1,0 @@
-*.swp
-*.tmp
-konsave/profiles/*.zip
-konsave/profiles/*.knsv
-.aider*
-!.aider.conf.yml
-!.aider.model.metadata.json

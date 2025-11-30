@@ -1,68 +1,21 @@
-# Applications setup
-
-Dependencies:
+# Terminal and editor setup
 
 - `git`
 - `curl`
-- `npm`
-- `vim`
-
-```bash
-git clone https://github.com/Vinicius-Cavagnolli/dotfiles.git ~/.dotfiles-bkp
-cd ~/.dotfiles-bkp
-chmod +x init.sh
-./init.sh
-```
-
-> ⚠️ The script will prompt for `sudo` to start some utilities.
-
-## Layout setup
-
-Dependencies:
-
-- `konsave` [GitHub](https://github.com/prayag2/konsave)
-
-> ⚠️ The scripts were tested within a KDE Plasma|Wayland|Kwin environment.
-
-### Backup
-
-Run the backup script to save the current KDE configuration as a timestamped backup ZIP in the `konsave/profiles/` folder:
-
-```bash
-chmod + x ./konsave/backup-profile.sh
-./konsave/backup-profile.sh
-```
-
-Example output file:  
-`konsave/profiles/minimal-setup-2025-05-19_17-37.knsv.zip`
-
-> ⚠️ This folder contains local konsave backups. Files here are not tracked by Git.
-
-#### Restore
-
-Restore a saved profile by passing the backup filename (without extension) as an argument:
-
-```bash
-chmod + x ./konsave/restore-profile.sh
-./konsave/restore-profile.sh minimal-setup-2025-05-19_17-37
-```
-
-## Wallpaper setup
-
-Dependencies:
-
-- `smartER-video-wallpaper` [GitHub](https://github.com/PeterTucker/smartER-video-wallpaper/) [KDE Store](https://store.kde.org/p/1448924)
-
-> ⚠️ This was backed up externally from git, so it was removed for automatically defining it. Follow the manual install.
-
-## SDDM setup
-
-```bash
-chmod + x ./sddm/install.sh
-./sddm/install.sh
-```
-
-## Recommended helpers
-
-- tree
-- httpie
+- `zsh`
+- [uv](https://docs.astral.sh/uv/)
+- [Alacritty](https://github.com/alacritty/alacritty)
+    - Config under `alacritty\alacritty.toml`
+    - [Default theme pack](https://github.com/alacritty/alacritty-theme)
+    - [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/)
+- [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
+    - Config under `zsh\.zshrc`
+    - Plugins used: 
+        - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+        - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+        - [zsh-shift-select](https://github.com/jirutka/zsh-shift-select)
+        - [fzf](https://github.com/junegunn/fzf) - installed with options `~/.fzf/install --key-bindings --completion --no-update-rc`
+- [Vim](https://github.com/vim/vim)
+    - Custom installation on `vim\vim.sh`
+    - Clipboard support for Wayland on `vim\vim-wayland.sh`
+    - Config under `vim\.vimrc` (then load plugins with `:PlugInstall`)

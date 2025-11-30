@@ -19,21 +19,11 @@ bindkey '^I^I' autosuggest-accept
 autoload -U select-word-style
 select-word-style bash
 
-# ollama
-export OLLAMA_API_BASE=http://127.0.0.1:11434
-
-# bun
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "~/.local/share/reflex/bun/_bun" ] && source "~/.local/share/reflex/bun/_bun"
-# bun end
+# basic path export
+export PATH="$HOME/.local/bin:$PATH"
 
 # go
 export PATH=$PATH:/usr/local/go/bin
-
-# aider
-export PATH="$HOME/.local/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -53,3 +43,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# vscode
+export PATH=$PATH:/usr/local/bin
